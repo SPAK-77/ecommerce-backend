@@ -51,5 +51,9 @@ export const getCategoryImage = (category) => {
 
 export const handleCategoryImageError = (e, category) => {
   e.target.onerror = null;
-  e.target.src = DEFAULT_CATEGORY_IMAGE;
+  if (category && category.image && category.image !== e.target.src) {
+    e.target.src = category.image;
+  } else {
+    e.target.src = DEFAULT_CATEGORY_IMAGE;
+  }
 };

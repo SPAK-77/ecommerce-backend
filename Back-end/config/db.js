@@ -1,24 +1,23 @@
-const mysql = require('mysql2/promise');
-require('dotenv').config();
+const mysql = require('mysql2');
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'estore',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
+const db = mysql.createConnection({
+  host: 'mysql-3a42ea9-arjunvkra2000-8fcb.a.aivencloud.com',
+  port: 20545,
+  user: 'avnadmin',
+  password: 'AVNS_jxWsRfeNKTvQg6NN02Z',
+  database: 'defaultdb',
+  ssl: {
+    rejectUnauthorized: false // Handles Aiven's REQUIRED SSL mode cleanly
+  }
 });
 
-// Test connection
-pool.getConnection()
-  .then(conn => {
-    console.log('✅ MySQL connected successfully');
-    conn.release();
-  })
-  .catch(err => {
-    console.error('❌ MySQL connection error:', err.message);
-  });
+// Test the connection
+db.connect((err) => {
+  if (err) {
+    console.error('Database connection failed:', err.message);
+    return;
+  }
+  console.log('Successfully connected to Aiven MySQL cloud database!');
+});
 
-module.exports = pool;
+module.exports = db;

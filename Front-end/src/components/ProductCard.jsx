@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { reviewsAPI } from '../api';
-import { FiShoppingCart, FiStar, FiPlus, FiMinus, FiInfo, FiX, FiCheck, FiMessageSquare, FiCalendar, FiUser } from 'react-icons/fi';
+import { FiShoppingCart, FiStar, FiPlus, FiMinus, FiInfo, FiX, FiCheck, FiMessageSquare } from 'react-icons/fi';
 import { getProductImage, handleImageError } from '../utils/productImages';
 import toast from 'react-hot-toast';
 import './ProductCard.css';
@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
   const maxQty = product.stock || 1;
   const imgUrl = getProductImage(product);
 
-  const fetchProductReviews = async () => {
+  const fetchProductReviews = useCallback(async () => {
     try {
       setLoadingReviews(true);
       const res = await reviewsAPI.get({ product_id: product.id });
@@ -39,13 +39,13 @@ const ProductCard = ({ product }) => {
     } finally {
       setLoadingReviews(false);
     }
-  };
+  }, [product.id]);
 
   useEffect(() => {
     if (showDetailsModal) {
       fetchProductReviews();
     }
-  }, [showDetailsModal]);
+  }, [showDetailsModal, fetchProductReviews]);
 
   const handleAddToCart = (e) => {
     e.preventDefault();

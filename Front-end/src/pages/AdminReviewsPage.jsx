@@ -3,10 +3,9 @@ import { reviewsAPI } from '../api';
 import Sidebar from '../components/Sidebar';
 import toast from 'react-hot-toast';
 import {
-  FiStar, FiTrash2, FiMessageSquare, FiUser, FiPackage,
-  FiCalendar, FiAlertTriangle, FiX, FiCheckCircle, FiSearch
+  FiTrash2, FiMessageSquare, FiPackage,
+  FiCalendar, FiAlertTriangle, FiX, FiSearch
 } from 'react-icons/fi';
-import { getProductImage, handleImageError } from '../utils/productImages';
 import './Dashboard.css';
 
 const AdminReviewsPage = () => {

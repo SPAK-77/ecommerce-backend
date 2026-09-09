@@ -211,8 +211,7 @@ export const getProductImage = (product) => {
     }
     // Relative upload path from backend server (express backend running on port 5000)
     if (img.startsWith('/uploads') || img.startsWith('uploads')) {
-      const cleanPath = img.startsWith('/') ? img : `/${img}`;
-      return `http://localhost:5000${cleanPath}`;
+      return img.startsWith('/') ? img : `/${img}`;
     }
     return img.startsWith('/') ? img : `/${img}`;
   }

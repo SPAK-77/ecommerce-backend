@@ -5,12 +5,12 @@ import { productsAPI, reviewsAPI } from '../api';
 import ProductCard from '../components/ProductCard';
 import toast from 'react-hot-toast';
 import {
-  FiArrowRight, FiPackage, FiShield, FiTruck, FiStar,
-  FiChevronRight, FiSearch, FiCheckCircle, FiClock,
-  FiZap, FiCreditCard, FiTrendingUp, FiGift, FiMessageSquare, FiX, FiCheck
+  FiArrowRight, FiShield, FiTruck, FiStar,
+  FiSearch, FiClock, FiZap, FiCreditCard,
+  FiMessageSquare, FiX, FiCheck
 } from 'react-icons/fi';
 import { getProductImage, handleImageError } from '../utils/productImages';
-import { getCategoryImage, handleCategoryImageError } from '../utils/categoryImages';
+import { handleCategoryImageError } from '../utils/categoryImages';
 import './PublicPage.css';
 
 const CATEGORIES = [

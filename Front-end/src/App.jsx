@@ -35,8 +35,8 @@ function App() {
             <Navbar />
             <main className="page-wrapper">
               <Routes>
-                <Route path="/" element={<AdminPanelRedirect><PublicPage /></AdminPanelRedirect>} />
-                <Route path="/products" element={<AdminPanelRedirect><ProductListingPage /></AdminPanelRedirect>} />
+                <Route path="/" element={<PublicPage />} />
+                <Route path="/products" element={<ProductListingPage />} />
                 <Route path="/login" element={<PublicOnlyRoute><LoginPage /></PublicOnlyRoute>} />
                 <Route path="/signup" element={<PublicOnlyRoute><SignupPage /></PublicOnlyRoute>} />
                 <Route path="/create-account" element={<PublicOnlyRoute><CreateAccountPage /></PublicOnlyRoute>} />

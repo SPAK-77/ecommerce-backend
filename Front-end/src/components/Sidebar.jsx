@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {
   FiHome, FiPackage, FiShoppingCart, FiClipboard,
-  FiUser, FiGrid, FiBarChart2, FiUsers, FiTag, FiStar
+  FiUser, FiGrid, FiUsers, FiTag, FiStar
 } from 'react-icons/fi';
 import './Sidebar.css';
 

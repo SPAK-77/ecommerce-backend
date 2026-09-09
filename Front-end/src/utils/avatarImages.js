@@ -28,8 +28,7 @@ export const getAvatarImage = (avatar) => {
     return clean;
   }
   if (clean.startsWith('/uploads') || clean.startsWith('uploads')) {
-    const pathClean = clean.startsWith('/') ? clean : `/${clean}`;
-    return `http://localhost:5000${pathClean}`;
+    return clean.startsWith('/') ? clean : `/${clean}`;
   }
   return clean;
 };

@@ -24,10 +24,10 @@ const placeOrder = async (req, res) => {
       }
     }
 
-    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const tax = subtotal * 0.18;
+    const subtotal = cartItems.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
+    const tax = Math.round((subtotal * 0.18) * 100) / 100;
     const shipping = subtotal > 500 ? 0 : 50;
-    const total = subtotal + tax + shipping;
+    const total = Math.round((subtotal + tax + shipping) * 100) / 100;
 
     const addressSnapshot = JSON.stringify(address);
 
@@ -42,7 +42,7 @@ const placeOrder = async (req, res) => {
     for (const item of cartItems) {
       await db.execute(
         'INSERT INTO order_items (order_id, product_id, product_name, quantity, price, image) VALUES (?, ?, ?, ?, ?, ?)',
-        [orderId, item.product_id, item.name, item.quantity, item.price, item.image]
+        [orderId, item.product_id, item.name, item.quantity, Number(item.price), item.image]
       );
       await db.execute('UPDATE products SET stock = stock - ? WHERE id = ?', [item.quantity, item.product_id]);
     }

@@ -6,9 +6,9 @@ import Sidebar from '../components/Sidebar';
 import { ordersAPI } from '../api';
 import toast from 'react-hot-toast';
 import {
-  FiTrash2, FiPlus, FiMinus, FiShoppingBag, FiArrowRight,
-  FiCheckCircle, FiX, FiMapPin, FiPhone, FiUser, FiPackage,
-  FiTruck, FiCreditCard, FiSmartphone, FiCheck
+  FiTrash2, FiPlus, FiMinus, FiArrowRight,
+  FiCheckCircle, FiX, FiMapPin, FiPhone, FiUser,
+  FiTruck, FiCreditCard, FiSmartphone
 } from 'react-icons/fi';
 import { getProductImage, handleImageError } from '../utils/productImages';
 import './CartPage.css';

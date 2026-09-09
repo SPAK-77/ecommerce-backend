@@ -10,7 +10,7 @@ import {
 import './Dashboard.css';
 
 const ProfilePage = () => {
-  const { user, setUser } = useAuth();
+  const { setUser } = useAuth();
   const [profileData, setProfileData] = useState({
     name: '', email: '', phone: '', role: '', created_at: '',
   });
