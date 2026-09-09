@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "cd Front-end && npm install && npm run build",
-    "start": "cd Back-end && npm start",
-    "dev": "cd Front-end && npm run dev"
-  },
+  "build": "cd Back-end && npm install && cd ../Front-end && npm install && npm run build",
+  "start": "cd Back-end && npm start"
+}
   "engines": {
     "node": ">=18"
   }
